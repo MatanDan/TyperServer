@@ -1,11 +1,11 @@
-var morgan = require('morgan');
-var path = require('path');
-var fs = require('fs');
-var rfs = require('rotating-file-stream')
+let morgan = require('morgan');
+let path = require('path');
+let fs = require('fs');
+let rfs = require('rotating-file-stream');
 
 // Ensure log directory exists
-var logDirectory = path.join(__dirname, 'log')
-fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory)
+let logDirectory = path.join(__dirname, 'logs');
+fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
 
 // Create a rotating write stream
 accessLogStream = rfs('access.log', {

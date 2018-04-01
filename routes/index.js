@@ -1,10 +1,15 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let postDao = require('../dao/postDao');
+const {Post} = require('../model/base');
+let router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-    response = {'title': 'index'};
-    res.json(response);
+router.get('/', function(req, res) {
+    let newPost = new Post({title: 'createdWithObject'});
+    postDao.save(newPost)
+        .then(val =>
+            res.json(val.toJSON()))
+        .catch(() =>
+            res.json({title: 'error'}));
 });
 
 module.exports = router;
