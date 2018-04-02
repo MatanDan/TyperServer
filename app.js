@@ -2,6 +2,7 @@ const express = require('express');
 const logger = require('./accesslog');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const session = require('express-session');
 
 // Load routers
 const indexRouter = require('./routes/index');
@@ -14,6 +15,11 @@ app.set('view engine', 'html');
 // Logging requests, CORS enabled for clients access
 app.use(logger);
 app.use(cors());
+app.use(session({
+    secret: '2C44-4D44-WppQ38S',
+    resave: true,
+    saveUninitialized: true
+}));
 
 // Express middlewares
 app.use(express.json());
