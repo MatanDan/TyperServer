@@ -2,7 +2,7 @@ const {Post} = require('../model/base');
 let baseDao = require('./baseDao');
 
 
-module.exports.save = function(title, authorName) {
+module.exports.save = (title, authorName) => {
     let newPost = new Post({
         title: title,
         author: {
@@ -13,3 +13,4 @@ module.exports.save = function(title, authorName) {
     return baseDao.save(newPost);
 };
 
+module.exports.save = saveObject => baseDao.save(saveObject);

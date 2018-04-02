@@ -22,11 +22,11 @@ app.use(cookieParser());
 app.use('/', indexRouter);
 
 // 404 Handler
-app.use(function(req, res) {
+app.use((req, res) => {
   res.json({'title': 'not found'});
 });
 
 port = process.env.port || 80;
-app.listen(port, function() {
+app.listen(port, () => {
   console.log("Server has been started on port " + port);
 });

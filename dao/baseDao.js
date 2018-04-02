@@ -1,3 +1,4 @@
-module.exports.save = function (modelObject) {
-    return modelObject.save().then(() => modelObject);
+module.exports.save = async function (modelObject) {
+    await modelObject.save();
+    return modelObject;
 };
