@@ -1,6 +1,7 @@
-let express = require('express');
-let postDao = require('../dao/postDao');
+const express = require('express');
+const postDao = require('../dao/postDao');
 const {Post} = require('../model/base');
+
 let router = express.Router();
 
 router.get('/', async (req, res) => {
