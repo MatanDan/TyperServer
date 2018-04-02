@@ -1,16 +1,18 @@
-let express = require('express');
-let logger = require('./accesslog');
-let cookieParser = require('cookie-parser');
+const express = require('express');
+const logger = require('./accesslog');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 // Load routers
-let indexRouter = require('./routes/index');
+const indexRouter = require('./routes/index');
 
 // Express application
 let app = express();
 app.set('view engine', 'html');
 
-// Logging requests
+// Logging requests, CORS enabled for clients access
 app.use(logger);
+app.use(cors());
 
 // Express middlewares
 app.use(express.json());
