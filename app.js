@@ -5,6 +5,7 @@ const cors = require('cors');
 
 // Load routers
 const indexRouter = require('./routes/index');
+const loginRouter = require('./routes/login');
 
 // Express application
 let app = express();
@@ -20,6 +21,7 @@ app.use(cookieParser());
 
 // Express routing
 app.use('/', indexRouter);
+app.use('/login', loginRouter);
 
 // 404 Handler
 app.use((req, res) => {
